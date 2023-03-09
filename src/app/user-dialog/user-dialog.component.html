@@ -1,0 +1,51 @@
+
+<h1 class="text-center" mat-dialog-title>Add User</h1>
+<div mat-dialog-content>
+  <form [formGroup]="userForm" (ngSubmit)="addUser()">
+    <div class="mb-1">
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        formControlName="name"
+      />
+    </div>
+    <div class="mb-1">
+      <label for="email" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        formControlName="email"
+      />
+    </div>
+    <div class="mb-1">
+      <label for="mNumber" class="form-label">Mobile Number</label>
+      <input
+        type="text"
+        class="form-control"
+        id="mNumber"
+        formControlName="mNumber"
+      />
+    </div>
+    <div class="mb-1">
+      <label for="password" class="form-label">password</label>
+      <input
+        type="text"
+        class="form-control"
+        id="password"
+        formControlName="password"
+      />
+    </div>
+    <button
+      type="button"
+      class="btn btn-danger mx-3 btn-lg"
+      routerLink="user"
+      mat-dialog-close
+    >
+      Close
+    </button>
+    <button type="submit" class="btn btn-success mx-3 btn-lg">Add</button>
+  </form>
+</div>

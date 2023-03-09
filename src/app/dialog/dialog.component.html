@@ -1,0 +1,54 @@
+<h1 class="text-center" mat-dialog-title>Add Your Own Blog</h1>
+<div mat-dialog-content>
+  <form [formGroup]="blogForm" (ngSubmit)="addBlog()">
+    <div class="mb-1">
+        <label for="name" class="form-label">Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          formControlName="name"
+        />
+      </div>
+    <div class="mb-1">
+      <label for="email" class="form-label">Email address</label>
+      <input
+        type="email"
+        class="form-control"
+        id="email"
+        formControlName="email"
+      />
+    </div>
+    <div class="mb-1">
+      <label for="title" class="form-label">Title Of Your Blog</label>
+      <input
+        type="text"
+        class="form-control"
+        id="title"
+        formControlName="title"
+      />
+    </div>
+    <!-- <div class="mb-1">
+      <label for="image" class="form-label">Image for your Blog</label>
+      <input
+        type="file"
+        class="form-control"
+        id="image"
+        formControlName="image"
+        (click)="onFileChanged($event)"
+      />
+    </div> -->
+    <div class="mb-1">
+      <label for="blogContent" class="form-label">Write Your Blog</label>
+      <textarea
+        type="text"
+        class="form-control"
+        id="blogContent"
+        rows="3"
+        formControlName="blogContent"
+      ></textarea>
+    </div>
+    <button type="button" class="btn btn-danger mx-3 btn-lg"  mat-dialog-close>Close</button>
+    <button type="submit" routerLink="/blog" class="btn btn-primary mx-3 my-1 btn-lg">{{ actionBtn }}</button>
+  </form>
+</div>

@@ -1,0 +1,19 @@
+<mat-toolbar color="secondary">
+ 
+    <div class="container-fluid">
+      <img class="m-2" src="../../assets/logo1.png" alt="" width="30" height="24">
+    <a class="navbar-brand" routerLink="/blog">Khyati's Blogs</a>
+    <a class="mx-3" routerLink="/blog">Blogs</a>
+    <a class="" *ngIf="isLoggedIn === 'true'" routerLink="user">User</a>
+  </div>
+  <button class="m-2 btn btn-lg btn-success" (click)="openDialog()" routerLink="/blog">Add Blog</button>
+  <div *ngIf="actionBtn === 'login'">
+    <button class="m-2 btn btn-lg btn-primary" routerLink="/login" (click)="btnChange()" >{{actionBtn}}</button>
+  </div>
+  <div *ngIf="actionBtn === 'LogOut'">
+    <button class="m-2 btn btn-lg btn-primary" [routerLink]="['/blog']" (click)="logOut()" >{{actionBtn}}</button>
+  </div>
+  
+  
+    
+</mat-toolbar>

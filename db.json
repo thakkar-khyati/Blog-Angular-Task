@@ -1,0 +1,62 @@
+{
+  "blogList": [
+    {
+      "name": "khyati",
+      "email": "khyatikotak106@gmail.com",
+      "title": "cars",
+      "blogContent": "lambos",
+      "id": 4
+    },
+    {
+      "name": "khyati",
+      "email": "khyatikotak106@gmail.com",
+      "title": "cars",
+      "blogContent": "G-Wagon",
+      "id": 5
+    },
+    {
+      "name": "khyati",
+      "email": "khyatikotak106@gmail.com",
+      "title": "sads",
+      "blogContent": "gdertg",
+      "id": 6
+    },
+    {
+      "name": "khyati",
+      "email": "khyatikotak106@gmail.com",
+      "title": "gtet",
+      "blogContent": "ertrefgd",
+      "id": 7
+    }
+  ],
+  "signupUsers": [
+    {
+      "name": "khyati",
+      "email": "khyatikotak106@gmail.com",
+      "mNumber": "9999999991",
+      "password": "dfgfghh",
+      "id": 1
+    },
+    {
+      "name": "khyati",
+      "email": "khyatikotak106@gmail.com",
+      "mNumber": "999999999",
+      "password": "1234",
+      "id": 2
+    },
+    {
+      "name": "khyati",
+      "email": "khyatikotak106@gmail.com",
+      "mNumber": "9999999999",
+      "password": "asdasf",
+      "id": 3
+    },
+    {
+      "name": "khyati",
+      "email": "khyatikotak106@gmail.com",
+      "mNumber": "9999999998",
+      "password": "rtr",
+      "id": 4
+    }
+  ]
+}
