@@ -57,7 +57,6 @@ export class LoginComponent implements OnInit, AfterViewInit {
         });
         if(user){
           console.log("login successfull");
-          
           localStorage.setItem("isLoggedIn", "true");
           this.router.navigate(['/','blog']);
           this.loginForm.reset();
