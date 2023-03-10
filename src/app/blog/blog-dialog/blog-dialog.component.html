@@ -1,30 +1,44 @@
 <div class="container">
-    <div class="m-2">
-      <ul class="list-group" >
-        <li class="list-group-item m-3" >
-          <div class="card-title text-primary">
-            <h1 class="fs-1">{{ selected.title }}</h1>
+  <div class="m-2">
+    <ul class="list-group">
+      <li class="list-group-item m-3">
+        <div class="card-title text-primary">
+          <h1 class="fs-1">{{ selected.title }}</h1>
+        </div>
+        <div class="card-body">
+          {{ selected.blogContent }}
+          <hr />
+          <pre
+            class="fs-4 fw-bold"
+          >Summery: <p class="fs-6 fw-normal">            {{ selected.summery}}</p> </pre>
+        </div>
+        <div class="card-footer text-end">
+          <p>Blog by {{ selected.name }} [ {{ selected.email }} ]</p>
+          <div>
+            <button class="btn btn-primary mx-2 mb-2" routerLink="/blog">
+              close
+            </button>
           </div>
-          <div class="card-body">
-            {{ selected.blogContent }}
-            <hr>
-              <pre class="fs-4 fw-bold">Summery: <p class="fs-6 fw-normal">            {{ selected.summery}}</p> </pre>
+          <div *ngIf="isLoggedIn === 'true' && isAdmin === 'true'">
+            <button
+              class="btn btn-success mx-2"
+              id="{{ selected.id }}"
+              (click)="updateBlog($event)"
+            >
+              <i class="bi bi-pencil-square"></i>
+              Update
+            </button>
+            <button
+              class="btn btn-danger mx-2"
+              id="{{ selected.id }}"
+              (click)="deleteBlog($event)"
+              [routerLink]="['/blog']"
+            >
+              <i class="bi bi-trash-fill"></i>Delete
+            </button>
           </div>
-          <div class="card-footer text-end">
-            <p>Blog by {{ selected.name }} [ {{ selected.email }} ]</p>
-            <div>
-                <button class="btn btn-primary mx-2 mb-2" routerLink="/blog"> close </button>
-            </div>
-            <div *ngIf="isLoggedIn === 'true'">
-              <button class="btn btn-success mx-2"  id="{{selected.id}}" (click)="updateBlog($event)">
-                  <i class="bi bi-pencil-square"></i>
-                  Update</button>
-              <button class="btn btn-danger mx-2" id="{{selected.id}}" (click)="deleteBlog($event) " [routerLink]="['/blog']" >
-                  <i class="bi bi-trash-fill"></i>Delete</button>
-            </div>
-          </div>
-        </li>
-      </ul>
-    </div>
+        </div>
+      </li>
+    </ul>
   </div>
-  
+</div>

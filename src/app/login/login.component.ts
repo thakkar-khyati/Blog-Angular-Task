@@ -12,7 +12,6 @@ import { blogModel } from "../blog/blog.model";
 })
 export class LoginComponent implements OnInit, AfterViewInit {
   public loginForm!: FormGroup;
-   
 
   constructor(
     private formBuilder: FormBuilder,
@@ -34,13 +33,10 @@ export class LoginComponent implements OnInit, AfterViewInit {
         ],
       ],
     });
-    
     //console.log(this.isObject(this.navigate.actionBtn));
   }
 
-  ngAfterViewInit(): void {
-
-  }
+  ngAfterViewInit(): void {}
 
   isObject(value: any): boolean {
     return typeof value === "string";
@@ -55,24 +51,27 @@ export class LoginComponent implements OnInit, AfterViewInit {
             a.password === this.loginForm.value.password
           );
         });
-        if(user){
+        if (user) {
+          let role = user.role;
+          let id = user.id;
+          if(role === "admin"){
+            localStorage.setItem("admin",'true');
+          }
           console.log("login successfull");
+          localStorage.setItem("id", id);
           localStorage.setItem("isLoggedIn", "true");
-          this.router.navigate(['/','blog']);
+          
+          this.router.navigate(['blog']);
           this.loginForm.reset();
           
-          
+
           // setTimeout(() => {
           //   this.navigator.action = 'LogOut';
           // }, 0);
-        }
-        else{
-         
+        } else {
         }
         location.reload();
       },
     });
   }
-  
-  
 }

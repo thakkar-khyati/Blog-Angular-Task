@@ -1,4 +1,3 @@
-
 <h1 class="text-center" mat-dialog-title>Add User</h1>
 <div mat-dialog-content>
   <form [formGroup]="userForm" (ngSubmit)="addUser()">
@@ -11,6 +10,14 @@
         formControlName="name"
       />
     </div>
+    <div
+      class="text-danger"
+      *ngIf="
+        userForm.controls['name'].invalid && userForm.controls['name'].touched
+      "
+    >
+      Name Required
+    </div>
     <div class="mb-1">
       <label for="email" class="form-label">Email address</label>
       <input
@@ -19,6 +26,14 @@
         id="email"
         formControlName="email"
       />
+    </div>
+    <div
+      class="text-danger"
+      *ngIf="
+        userForm.controls['email'].invalid && userForm.controls['email'].touched
+      "
+    >
+      Email Required
     </div>
     <div class="mb-1">
       <label for="mNumber" class="form-label">Mobile Number</label>
@@ -29,6 +44,51 @@
         formControlName="mNumber"
       />
     </div>
+    <div class="text-danger" *ngIf="userForm.controls['mNumber'].invalid && userForm.controls['mNumber'].touched">Mobile number Required</div>
+    <div class="mb-1">
+      <label for="role" class="form-label">Role</label>
+      <input
+        type="text"
+        class="form-control"
+        id="role"
+        formControlName="role"
+      />
+    </div>
+    <div class="text-danger" *ngIf="userForm.controls['role'].invalid && userForm.controls['role'].touched">
+      Enter Role of either admin or user
+    </div>
+    <div class="mb-1">
+      <label for="address" class="form-label">Address</label>
+      <input
+        type="text"
+        class="form-control"
+        id="address"
+        formControlName="address"
+      />
+      <div class="text-danger" *ngIf="userForm.controls['address'].invalid && userForm.controls['address'].touched">
+        Address Required
+      </div>
+      <label for="city" class="form-label">city</label>
+      <input
+        type="text"
+        class="form-control"
+        id="city"
+        formControlName="city"
+      />
+      <div class="text-danger" *ngIf="userForm.controls['city'].invalid && userForm.controls['city'].touched">
+        City Required
+      </div>
+      <label for="country" class="form-label">country</label>
+      <input
+        type="text"
+        class="form-control"
+        id="country"
+        formControlName="country"
+      />
+      <div class="text-danger" *ngIf="userForm.controls['country'].invalid && userForm.controls['country'].touched">
+        Country Required
+      </div>
+    </div>
     <div class="mb-1">
       <label for="password" class="form-label">password</label>
       <input
@@ -38,14 +98,21 @@
         formControlName="password"
       />
     </div>
-    <button
-      type="button"
-      class="btn btn-danger mx-3 btn-lg"
-      routerLink="user"
-      mat-dialog-close
-    >
-      Close
-    </button>
-    <button type="submit" class="btn btn-success mx-3 btn-lg">Add</button>
+    <div class="text-danger" *ngIf="userForm.controls['password'].invalid && userForm.controls['password'].touched">
+      password Required & of minimum size of 5
+    </div>
+    <div>
+      <button
+        type="button"
+        class="btn btn-danger mx-3 btn-lg"
+        routerLink="user"
+        mat-dialog-close
+      >
+        Close
+      </button>
+      <button type="submit" class="btn btn-success mx-3 btn-lg">
+        {{ actionBtn }}
+      </button>
+    </div>
   </form>
 </div>

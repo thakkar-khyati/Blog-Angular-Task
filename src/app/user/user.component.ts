@@ -15,7 +15,8 @@ export class UserComponent implements OnInit {
 
   userData:userModal[] =[];
   isLoggedIn = localStorage.getItem("isLoggedIn");
-
+  selectedId = Number(localStorage.getItem("id"));
+  isAdmin = localStorage.getItem("admin");
   constructor(private http: HttpClient, private api: ApiService, private dialog: MatDialog, private router: Router){
 
   }

@@ -47,6 +47,7 @@ export class DialogComponent implements OnInit {
   addBlog() {
     if (!this.editBlog) {
       if (this.blogForm.valid) {
+        console.log(this.blogForm);
         this.api.postBlog(this.blogForm.value).subscribe({
           next: (res) => {
             console.log('blog added.');
@@ -67,9 +68,10 @@ export class DialogComponent implements OnInit {
   }
 
   updateBlog(){
-    this.api.putBlog(this.blogForm.value, this.editBlog[0].id).subscribe({
+    this.api.putBlog(this.blogForm.value, this.editBlog.id).subscribe({
       next:(res)=>{
         console.log("updated successfully.");
+        location.reload();
         this.blogForm.reset();
         this.dialogRef.close('update');
       },

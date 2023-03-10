@@ -1,9 +1,10 @@
 import { HttpClient } from "@angular/common/http";
 import { Component, Inject, OnInit } from "@angular/core";
 import { ApiService } from "../services/api.service";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { userModal } from "../user/user.model";
 import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-user-dialog",
@@ -12,6 +13,8 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material/dialog";
 })
 export class UserDialogComponent implements OnInit {
   actionBtn: string = "Add";
+  roles = ['admin','Admin','user','User'];
+  roleIsForbidden!:boolean
   public userForm!: FormGroup;
   
 
@@ -35,16 +38,26 @@ export class UserDialogComponent implements OnInit {
           Validators.minLength(10),
         ],
       ],
-      password: ["", Validators.required],
+      role:["",[Validators.required]],
+      address:["",Validators.required],
+      city:["",Validators.required],
+      country:["",Validators.required],
+      password: ["", [Validators.required,Validators.minLength(5)]]
+      
     });
 
     if(this.editUser){
       this.actionBtn = 'Update';
-      this.userForm.controls['name'].setValue(this.editUser[0].name);
-      this.userForm.controls['email'].setValue(this.editUser[0].email);
-      this.userForm.controls['mNumber'].setValue(this.editUser[0].mNumber);
-      this.userForm.controls['password'].setValue(this.editUser[0].password);
+      this.userForm.controls['name'].setValue(this.editUser.name);
+      this.userForm.controls['email'].setValue(this.editUser.email);
+      this.userForm.controls['mNumber'].setValue(this.editUser.mNumber);
+      this.userForm.controls['role'].setValue(this.editUser.role);
+      this.userForm.controls['address'].setValue(this.editUser.address);
+      this.userForm.controls['city'].setValue(this.editUser.city);
+      this.userForm.controls['country'].setValue(this.editUser.country);
+      this.userForm.controls['password'].setValue(this.editUser.password);
     }
+    
   }
 
   addUser(){
@@ -55,6 +68,7 @@ export class UserDialogComponent implements OnInit {
             console.log("user added");
             this.userForm.reset();
             this.dialogRef.close('save');
+            location.reload();
           },
           error:(e)=>{
             console.log(e);
@@ -68,7 +82,7 @@ export class UserDialogComponent implements OnInit {
   }
 
   updateUser(){
-    this.api.putUser(this.userForm.value,this.editUser[0].id).subscribe({
+    this.api.putUser(this.userForm.value,this.editUser.id).subscribe({
       next:(res)=>{
         this.userForm.reset();
         this.dialogRef.close('update');
@@ -78,5 +92,13 @@ export class UserDialogComponent implements OnInit {
       }
     })
   }
+
+  // roleValidator(control:FormControl):{[s:string]:boolean}{
+  //   if(!this.roles.indexOf(control.value)){
+  //     return {'roleforbidden': true}
+  //   }
+  //   return null;
+    
+  // }
 }
 

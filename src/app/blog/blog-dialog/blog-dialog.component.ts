@@ -15,6 +15,7 @@ export class BlogDialogComponent implements OnInit {
   blogId!: { id: number };
   selected!: blogModel;
   isLoggedIn = localStorage.getItem("isLoggedIn");
+  isAdmin = localStorage.getItem("admin");
 
   constructor(private route: ActivatedRoute, private api: ApiService, private dialog: MatDialog) {}
 
@@ -39,7 +40,6 @@ export class BlogDialogComponent implements OnInit {
   }
 
   updateBlog(event: any) {
-
     this.dialog
       .open(DialogComponent, {
         width: '80%',

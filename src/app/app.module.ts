@@ -19,6 +19,7 @@ import { SignupComponent } from './signup/signup.component';
 import { UserComponent } from './user/user.component';
 import { UserDialogComponent } from './user-dialog/user-dialog.component';
 import { BlogDialogComponent } from './blog/blog-dialog/blog-dialog.component';
+import { UserDetailComponent } from './user/user-detail/user-detail.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { BlogDialogComponent } from './blog/blog-dialog/blog-dialog.component';
     SignupComponent,
     UserComponent,
     UserDialogComponent,
-    BlogDialogComponent
+    BlogDialogComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,

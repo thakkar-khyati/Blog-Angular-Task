@@ -3,7 +3,7 @@
     {
       "name": "khyati",
       "email": "khyatikotak106@gmail.com",
-      "title": "cars",
+      "title": "car",
       "blogContent": "sfsrdgvf",
       "summery": "sefsd",
       "id": 1
@@ -25,42 +25,36 @@
       "id": 3
     },
     {
-      "name": "csdc",
-      "email": "thakkar.yati@gmail.com",
-      "title": "fds",
-      "blogContent": "fcsdf",
-      "summery": "fvsdgfv",
-      "id": 4
+      "name": "khyati",
+      "email": "khyatikotak106@gmail.com",
+      "title": "lip-balm",
+      "blogContent": "dfcsd",
+      "summery": "fsefsd",
+      "id": 5
     }
   ],
   "signupUsers": [
     {
       "name": "khyati",
       "email": "khyatikotak106@gmail.com",
-      "mNumber": "9999999991",
-      "password": "dfgfghh",
-      "id": 1
-    },
-    {
-      "name": "khyati",
-      "email": "khyatikotak106@gmail.com",
-      "mNumber": "999999999",
-      "password": "1234",
-      "id": 2
-    },
-    {
-      "name": "khyati",
-      "email": "khyatikotak106@gmail.com",
-      "mNumber": "9999999999",
-      "password": "asdasf",
-      "id": 3
-    },
-    {
-      "name": "khyati",
-      "email": "khyatikotak106@gmail.com",
       "mNumber": "9999999998",
-      "password": "rtr",
+      "role": "admin",
+      "address": "viramgam",
+      "city": "ahemdabad",
+      "country": "india",
+      "password": "123456",
       "id": 4
+    },
+    {
+      "name": "hinal",
+      "email": "hinal@gmail.com",
+      "mNumber": "9999999998",
+      "role": "user",
+      "address": "viramgam",
+      "city": "ahemdabad",
+      "country": "india",
+      "password": "123456",
+      "id": 5
     }
   ]
 }

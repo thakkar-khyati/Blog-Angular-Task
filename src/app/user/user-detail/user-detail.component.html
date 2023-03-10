@@ -1,0 +1,57 @@
+<div *ngIf="isLoggedIn === 'true'">
+    <div class="text-center">
+        <div class="container ">
+          <span class="fw-bold fs-1 text-primary">User Detail</span>
+          <div class="card">
+            <div class="card-body">
+              <span class="fw-bold">Name: </span> {{ selected.name }}
+              <hr />
+              <span class="fw-bold">Email: </span> {{ selected.email }}
+              <hr />
+              <span class="fw-bold">Mobile Number: </span> {{ selected.mNumber }}
+              <hr />
+              <span class="fw-bold">Role: </span> {{ selected.role }}
+              <hr />
+              <span class="fw-bold">Address: </span> {{ selected.address }}
+              <hr />
+              <span class="fw-bold">City: </span>{{ selected.city }}
+              <hr />
+              <span class="fw-bold">Country:</span> {{ selected.country }}
+              <hr />
+              <span class="fw-bold">Password:</span> {{selected.password}}
+              <hr />
+              <div class="text-center">
+                  <button
+                class="btn btn-success mx-1"
+                id="{{ selected.id }}"  
+                *ngIf="isAdmin === 'true'"
+                (click)="updateUser($event)"
+              >
+                Update
+              </button>
+              <button
+                class="btn btn-warning mx-1"
+                id="{{ selected.id }}"
+                *ngIf="isAdmin === 'true'"
+                (click)="deleteUser($event)"
+              >
+                Delete
+              </button>
+              <button class="btn-danger btn mx-1" [routerLink]="['/user']">
+                  Close
+              </button>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+<div *ngIf="isLoggedIn != 'true'">
+    <div class="container">
+        <div class="text-center">
+          <p>Only After Logging In can this page be viewed.</p>
+          <a routerLink="/login">Login</a>
+        </div>
+      </div>
+</div>

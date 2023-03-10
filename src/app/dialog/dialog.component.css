@@ -1,12 +1,8 @@
-.border{
-    border: 1px red solid;
-}
 
 input.ng-invalid.ng-touched{
     border: 1px red solid;
 }
 
-/* .nameRequired.ng-invalid.ng-touched{
-    display: block;
-    color: red;
-} */
+textarea.ng-invalid.ng-touched{
+    border: 1px red solid;
+}

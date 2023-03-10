@@ -16,6 +16,7 @@ export class NavigatorComponent implements OnInit {
   actionBtn:string ='';
   blogdata: blogModel[] = [];
   isLoggedIn = localStorage.getItem("isLoggedIn");
+  isAdmin = localStorage.getItem("admin");
 
   constructor(
     private dialog: MatDialog,
@@ -37,6 +38,9 @@ export class NavigatorComponent implements OnInit {
 
     logOut(){
       localStorage.removeItem("isLoggedIn");
+      if(localStorage.getItem("admin")){
+        localStorage.removeItem("admin");
+      }
       location.reload();
       // this.router.navigate(['/blog']);
       this.actionBtn = "login";

@@ -4,4 +4,8 @@ export interface userModal{
     mNumber:number;
     password:string;
     id:number;
+    role:string;
+    address:string;
+    city:string;
+    country:string;
 }

@@ -2,14 +2,22 @@
 <div mat-dialog-content>
   <form [formGroup]="blogForm" (ngSubmit)="addBlog()">
     <div class="mb-1">
-        <label for="name" class="form-label">Name</label>
-        <input
-          type="text"
-          class="form-control"
-          id="name"
-          formControlName="name"
-        /> 
-      </div>
+      <label for="name" class="form-label">Name</label>
+      <input
+        type="text"
+        class="form-control"
+        id="name"
+        formControlName="name"
+      />
+    </div>
+    <div
+      class="text-danger"
+      *ngIf="
+        blogForm.controls['name'].invalid && blogForm.controls['name'].touched
+      "
+    >
+      Name Required
+    </div>
     <div class="mb-1">
       <label for="email" class="form-label">Email address</label>
       <input
@@ -18,6 +26,14 @@
         id="email"
         formControlName="email"
       />
+    </div>
+    <div
+      class="text-danger"
+      *ngIf="
+        blogForm.controls['email'].invalid && blogForm.controls['email'].touched
+      "
+    >
+      Email Required
     </div>
     <div class="mb-1">
       <label for="title" class="form-label">Title Of Your Blog</label>
@@ -28,16 +44,14 @@
         formControlName="title"
       />
     </div>
-    <!-- <div class="mb-1">
-      <label for="image" class="form-label">Image for your Blog</label>
-      <input
-        type="file"
-        class="form-control"
-        id="image"
-        formControlName="image"
-        (click)="onFileChanged($event)"
-      />
-    </div> -->
+    <div
+      class="text-danger"
+      *ngIf="
+        blogForm.controls['title'].invalid && blogForm.controls['title'].touched
+      "
+    >
+      Title Required
+    </div>
     <div class="mb-1">
       <label for="blogContent" class="form-label">Write Your Blog</label>
       <textarea
@@ -47,6 +61,15 @@
         rows="2"
         formControlName="blogContent"
       ></textarea>
+    </div>
+    <div
+      class="text-danger"
+      *ngIf="
+        blogForm.controls['blogContent'].invalid &&
+        blogForm.controls['blogContent'].touched
+      "
+    >
+      Write some blog content
     </div>
     <div class="mb-1">
       <label for="summery" class="form-label">Add a summery</label>
@@ -58,7 +81,26 @@
         formControlName="summery"
       ></textarea>
     </div>
-    <button type="button" class="btn btn-danger mx-3 btn-lg"  mat-dialog-close>Close</button>
-    <button type="submit"[routerLink]="['/blog']" class="btn btn-primary mx-3 my-1 btn-lg">{{ actionBtn }}</button>
+    <div
+      class="text-danger"
+      *ngIf="
+        blogForm.controls['summery'].invalid &&
+        blogForm.controls['summery'].touched
+      "
+    >
+      write a summery for your blog
+    </div>
   </form>
+</div>
+<div mat-dialog-footer>
+  <button type="button" class="btn btn-danger mx-3 btn-lg" mat-dialog-close>
+    Close
+  </button>
+  <button
+    type="submit"
+    [routerLink]="['/blog']"
+    class="btn btn-primary mx-3 btn-lg"
+  >
+    {{ actionBtn }}
+  </button>
 </div>
